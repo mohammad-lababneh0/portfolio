@@ -52,7 +52,7 @@ function AnimatedBackground() {
                 if (p.x <= 0 || p.x >= width) p.vx *= -1
                 if (p.y <= 0 || p.y >= height) p.vy *= -1
 
-                // Glowing particles
+                
                 ctx.beginPath()
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
                 ctx.fillStyle = 'rgba(192, 132, 252, 0.9)'
@@ -61,7 +61,7 @@ function AnimatedBackground() {
                 ctx.fill()
                 ctx.shadowBlur = 0
 
-                // Connections between nearby particles
+                
                 for (let j = i + 1; j < particles.length; j++) {
                     const other = particles[j]
                     const dx = p.x - other.x
