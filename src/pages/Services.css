@@ -1,0 +1,575 @@
+
+.services-page {
+    min-height: 100vh;
+    padding: 120px 7% 70px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(124, 58, 237, 0.13),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 85% 55%,
+            rgba(59, 130, 246, 0.09),
+            transparent 40%
+        ),
+        #080710;
+    color: #f5f3ff;
+}
+
+.services-header {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.services-label,
+.service-product-category {
+    color: #c084fc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.services-header h1 {
+    margin: 22px 0;
+    font-size: clamp(36px, 6vw, 66px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+}
+
+.services-header h1 span {
+    background: linear-gradient(
+        110deg,
+        #c084fc,
+        #818cf8,
+        #38bdf8
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.services-intro {
+    max-width: 570px;
+    margin: 0 auto;
+    color: #aaa5bf;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.services-header-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 30px;
+    color: #827c99;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.services-list {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid rgba(192, 132, 252, 0.17);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(27, 23, 45, 0.92),
+        rgba(13, 11, 25, 0.94)
+    );
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    animation: serviceAppear 0.7s ease both;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.service-product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(168, 85, 247, 0.65);
+    box-shadow: 0 20px 55px rgba(124, 58, 237, 0.12);
+}
+
+.service-product-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.service-product-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    color: #d8b4fe;
+    font-size: 28px;
+    background: rgba(168, 85, 247, 0.13);
+    border: 1px solid rgba(192, 132, 252, 0.2);
+}
+
+.service-product-number {
+    color: #716b87;
+    font-size: 13px;
+}
+
+.service-product-category {
+    margin: 0 0 12px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.service-product h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.service-product-description {
+    min-height: 56px;
+    margin: 0 0 28px;
+    color: #aaa5bf;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.service-product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(192, 132, 252, 0.12);
+}
+
+.service-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.service-price > span {
+    color: #8f89a5;
+    font-size: 11px;
+}
+
+.service-price strong {
+    font-size: 27px;
+    color: #f5f3ff;
+}
+
+.service-price small {
+    color: #c084fc;
+    font-size: 12px;
+}
+
+.service-add-button {
+    padding: 12px 16px;
+    border: 1px solid rgba(192, 132, 252, 0.3);
+    border-radius: 12px;
+    background: linear-gradient(120deg, #9333ea, #6366f1);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.service-add-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.service-add-button.added {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #86efac;
+    cursor: default;
+}
+
+.service-add-button:disabled {
+    opacity: 0.9;
+}
+
+.services-bottom {
+    position: relative;
+    z-index: 1;
+    margin: 65px auto 0;
+    text-align: center;
+}
+
+.services-bottom p {
+    color: #8f89a5;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.services-bottom a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #c084fc;
+    text-decoration: none;
+}
+
+.services-glow {
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.glow-one {
+    top: 300px;
+    left: -180px;
+    background: rgba(124, 58, 237, 0.16);
+}
+
+.glow-two {
+    top: 650px;
+    right: -180px;
+    background: rgba(59, 130, 246, 0.12);
+}
+
+@keyframes serviceAppear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    .services-page {
+        padding: 105px 5% 50px;
+    }
+
+    .services-header {
+        margin-bottom: 40px;
+    }
+
+    .services-header h1 {
+        letter-spacing: -1px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service-product {
+        padding: 24px;
+    }
+
+    .service-product-description {
+        min-height: auto;
+    }
+
+    .service-product-bottom {
+        align-items: flex-end;
+    }
+
+    .service-add-button {
+        padding: 11px 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-product {
+        animation: none;
+        transition: none;
+    }
+}
+
+
+
+
+.login-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(5, 7, 18, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: modalOverlayIn 0.25s ease;
+}
+
+
+
+
+.login-modal {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    padding: 28px 22px 22px;
+    overflow: hidden;
+    text-align: center;
+    direction: rtl;
+    color: #f8fafc;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(99, 102, 241, 0.17),
+            transparent 55%
+        ),
+        #111321;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 20px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(99, 102, 241, 0.1);
+    animation: modalCardIn 0.3s ease;
+}
+
+
+
+.login-modal-close {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    color: #a1a1aa;
+    font-size: 25px;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.login-modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(90deg);
+}
+
+
+.login-modal-icon {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 20px;
+    color: #a5b4fc;
+    background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.22),
+        rgba(139, 92, 246, 0.08)
+    );
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    border-radius: 24px;
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.13);
+}
+
+.login-modal-label {
+    margin: 0 0 10px;
+    color: #a5b4fc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    direction: ltr;
+}
+
+.login-modal h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.login-modal-description {
+    max-width: 330px;
+    margin: 0 auto 28px;
+    color: #a1a1b5;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+.login-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.login-modal-primary,
+.login-modal-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 18px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 13px;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-modal-primary {
+    color: #ffffff;
+    background: linear-gradient(110deg, #6366f1, #8b5cf6);
+    border: 0;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.22);
+}
+
+.login-modal-primary span {
+    font-size: 18px;
+}
+
+.login-modal-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+}
+
+.login-modal-secondary {
+    color: #d4d4df;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-modal-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.login-modal-footer {
+    margin: 24px 0 0;
+    color: #85859b;
+    font-size: 12px;
+}
+
+.login-modal-footer button {
+    padding: 0;
+    color: #a5b4fc;
+    font: inherit;
+    font-weight: 700;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.login-modal-footer button:hover {
+    color: #c4b5fd;
+    text-decoration: underline;
+}
+
+
+@keyframes modalOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .login-modal {
+        padding: 34px 22px 24px;
+        border-radius: 20px;
+    }
+
+    .login-modal h2 {
+        font-size: 26px;
+    }
+
+    .login-modal-description {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-modal-overlay,
+    .login-modal {
+        animation: none;
+    }
+}
+
+
+.login-modal-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+    border-radius: 19px;
+}
+
+.login-modal h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.login-modal-description {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.login-modal-primary,
+.login-modal-secondary {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 13px;
+}
+
+.login-modal-footer {
+    margin-top: 18px;
+    font-size: 11px;
+}
+

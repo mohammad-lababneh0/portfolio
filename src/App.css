@@ -1,0 +1,1216 @@
+
+/* ========================================
+   MOHAMMAD LABABNEH - FUTURISTIC PORTFOLIO
+======================================== */
+
+:root {
+    --portfolio-bg: #080710;
+    --portfolio-surface: #100e1c;
+    --portfolio-purple: #a855f7;
+    --portfolio-blue: #6366f1;
+    --portfolio-text: #f5f3ff;
+    --portfolio-muted: #a5a0b8;
+    --portfolio-border: rgba(192, 132, 252, 0.16);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+    background: var(--portfolio-bg);
+    color: var(--portfolio-text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: rgba(168, 85, 247, 0.45);
+    color: white;
+}
+
+/* Main page */
+
+.home {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    padding: 100px 7% 70px;
+    overflow: clip;
+    background:
+        radial-gradient(ellipse at 15% 5%, rgba(91, 33, 182, 0.19), transparent 35%),
+        radial-gradient(ellipse at 90% 20%, rgba(67, 56, 202, 0.14), transparent 32%),
+        var(--portfolio-bg);
+}
+
+/* Animated background glow */
+
+.home::before,
+.home::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.22;
+    pointer-events: none;
+    animation: floatingGlow 12s ease-in-out infinite alternate;
+}
+
+.home::before {
+    top: 5%;
+    left: -220px;
+    background: #7c3aed;
+}
+
+.home::after {
+    top: 35%;
+    right: -250px;
+    background: #4338ca;
+    animation-delay: -6s;
+}
+
+@keyframes floatingGlow {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.9);
+    }
+
+    50% {
+        transform: translate3d(90px, 70px, 0) scale(1.15);
+    }
+
+    100% {
+        transform: translate3d(-30px, 130px, 0) scale(1);
+    }
+}
+
+/* Hero section */
+
+.home > .home-label:first-child {
+    margin-top: 55px;
+}
+
+.home > .home-label,
+.home-label {
+    color: #c084fc;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.home > h1 {
+    max-width: 950px;
+    margin: 25px 0;
+    font-size: clamp(42px, 7vw, 88px);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    font-weight: 800;
+    background: linear-gradient(
+        110deg,
+        #ffffff 10%,
+        #d8b4fe 45%,
+        #818cf8 75%,
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: titleShine 7s linear infinite, heroEnter 0.9s ease both;
+}
+
+@keyframes titleShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home > h2 {
+    margin: 20px 0;
+    color: #e9d5ff;
+    font-size: clamp(22px, 3vw, 35px);
+    font-weight: 600;
+    animation: heroEnter 1s ease 0.15s both;
+}
+
+.home-description {
+    max-width: 650px;
+    color: var(--portfolio-muted);
+    font-size: 17px;
+    line-height: 1.9;
+    animation: heroEnter 1s ease 0.3s both;
+}
+
+/* Sections */
+
+.about,
+.services,
+.portfolio,
+.contact {
+    position: relative;
+    margin-top: 130px;
+    padding: 55px 0;
+    border-top: 1px solid var(--portfolio-border);
+}
+
+.about h2,
+.services h2,
+.portfolio h2,
+.contact h2 {
+    margin: 18px 0;
+    color: var(--portfolio-text);
+    font-size: clamp(30px, 4vw, 48px);
+    letter-spacing: -1.5px;
+}
+
+.about > p:last-child,
+.services-description,
+.portfolio-description,
+.contact-description {
+    max-width: 700px;
+    color: var(--portfolio-muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* Services cards */
+
+.services-grid,
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.services-grid > *,
+.project-card {
+    min-width: 0;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.015)
+    );
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.services-grid > *:hover,
+.project-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(192, 132, 252, 0.65);
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.25),
+        0 0 35px rgba(168, 85, 247, 0.12);
+}
+
+/* Projects */
+
+.project-card {
+    overflow: hidden;
+}
+
+.project-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 210px;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 35%;
+    transform: rotate(35deg);
+    animation: projectShape 12s linear infinite;
+}
+
+.project-image::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+
+.project-image span {
+    z-index: 1;
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.project-one {
+    background: radial-gradient(circle at 50% 50%, #6d28d9, #17102c 75%);
+}
+
+.project-two {
+    background: radial-gradient(circle at 50% 50%, #4338ca, #111329 75%);
+}
+
+.project-three {
+    background: radial-gradient(circle at 50% 50%, #9333ea, #21102e 75%);
+}
+
+@keyframes projectShape {
+    to {
+        transform: rotate(395deg);
+    }
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin: 0 0 12px;
+    color: white;
+    font-size: 19px;
+}
+
+.project-info p {
+    color: var(--portfolio-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.project-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 7px 11px;
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    border-radius: 8px;
+    background: rgba(168, 85, 247, 0.08);
+    color: #d8b4fe;
+    font-size: 12px;
+}
+
+/* Contact form */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 650px;
+    margin-top: 35px;
+    padding: 30px;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.contact-form label {
+    margin-top: 10px;
+    color: #e9d5ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid rgba(192, 132, 252, 0.2);
+    border-radius: 11px;
+    outline: none;
+    background: rgba(8, 7, 16, 0.75);
+    color: white;
+    font: inherit;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--portfolio-purple);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    padding: 15px 20px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(110deg, #9333ea, #4f46e5);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+/* Responsive design */
+
+@media (max-width: 900px) {
+    .home {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        margin-top: 90px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home {
+        padding-top: 65px;
+    }
+
+    .home > .home-label:first-child {
+        margin-top: 35px;
+    }
+
+    .home > h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .home-description {
+        font-size: 15px;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        margin-top: 65px;
+        padding-top: 35px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .project-image {
+        min-height: 190px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Interactive futuristic hero */
+.home {
+    --mouse-x: 50%;
+    --mouse-y: 30%;
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(
+            circle 350px at var(--mouse-x) var(--mouse-y),
+            rgba(168, 85, 247, 0.18),
+            transparent 75%
+        ),
+        radial-gradient(ellipse at 15% 5%, rgba(91, 33, 182, 0.16), transparent 35%),
+        #080710;
+}
+
+.hero-section {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 0 100px;
+}
+
+.gradient-text {
+    background: linear-gradient(100deg, #c084fc, #818cf8, #e9d5ff);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: titleShine 6s linear infinite;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 0 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-button:hover {
+    transform: translateY(-4px);
+}
+
+.primary-button {
+    background: linear-gradient(110deg, #9333ea, #4f46e5);
+    color: white;
+    box-shadow: 0 10px 35px rgba(124, 58, 237, 0.2);
+}
+
+.primary-button:hover {
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
+}
+
+.secondary-button {
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    color: #e9d5ff;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.hero-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    color: #aaa4bd;
+    font-size: 13px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.7);
+}
+
+.hero-decoration {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: 4%;
+    width: min(35vw, 390px);
+    aspect-ratio: 1;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(2px);
+    animation: orbFloat 6s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    background: radial-gradient(circle at 35% 30%, #e9d5ff, #a855f7 30%, #4c1d95 70%, transparent);
+    box-shadow: 0 0 90px rgba(168, 85, 247, 0.3);
+}
+
+.orb-two {
+    width: 100px;
+    margin: 65px 0 0 65px;
+    background: radial-gradient(circle, #818cf8, #4338ca 60%, transparent);
+    animation-delay: -2s;
+}
+
+.orb-three {
+    width: 75px;
+    margin: -70px 0 0 -70px;
+    background: radial-gradient(circle, #f0abfc, #9333ea 60%, transparent);
+    animation-delay: -4s;
+}
+
+.orbit-ring {
+    position: absolute;
+    inset: 10%;
+    border: 1px solid rgba(192, 132, 252, 0.22);
+    border-radius: 50%;
+    transform: rotate(-25deg) scaleY(0.7);
+}
+
+.orbit-two {
+    transform: rotate(55deg) scaleY(0.7);
+    border-color: rgba(129, 140, 248, 0.3);
+}
+
+.floating-code {
+    position: absolute;
+    padding: 10px 13px;
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 10px;
+    background: rgba(17, 14, 33, 0.8);
+    color: #e9d5ff;
+    font-size: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: codeFloat 5s ease-in-out infinite alternate;
+}
+
+.code-one {
+    top: 12%;
+    right: 0;
+}
+
+.code-two {
+    bottom: 18%;
+    left: 0;
+    animation-delay: -2s;
+}
+
+.code-three {
+    right: -3%;
+    bottom: 4%;
+    animation-delay: -3s;
+}
+
+@keyframes orbFloat {
+    from { transform: translate(-50%, -48%) scale(0.94); }
+    to { transform: translate(-45%, -55%) scale(1.08); }
+}
+
+@keyframes codeFloat {
+    from { translate: 0 0; }
+    to { translate: 0 -12px; }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #9d96b2;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.scroll-line {
+    width: 35px;
+    height: 1px;
+    background: #a855f7;
+}
+
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.skills-row span {
+    padding: 9px 13px;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 9px;
+    background: rgba(168, 85, 247, 0.06);
+    color: #d8b4fe;
+    font-size: 12px;
+}
+
+.project-category {
+    color: #c084fc !important;
+    font-size: 10px !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.project-glow {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.25);
+    filter: blur(45px);
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-glow {
+    transform: scale(1.6);
+}
+
+@media (max-width: 850px) {
+    .hero-decoration {
+        right: -7%;
+        opacity: 0.35;
+    }
+
+    .hero-section {
+        min-height: 580px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        min-height: 600px;
+        padding: 45px 0 100px;
+    }
+
+    .hero-decoration {
+        top: 55%;
+        right: -22%;
+        width: 280px;
+        opacity: 0.2;
+    }
+
+    .hero-actions {
+        width: 100%;
+    }
+
+    .hero-button {
+        padding: 0 15px;
+        font-size: 13px;
+    }
+
+    .scroll-indicator {
+        bottom: 25px;
+    }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fix section spacing */
+.about,
+.services,
+.portfolio,
+.contact {
+    margin-top: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Keep service and project grids compact */
+.services-grid,
+.portfolio-grid {
+    margin-top: 28px;
+    gap: 22px;
+}
+
+@media (max-width: 900px) {
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        margin-top: 35px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        margin-top: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        margin-top: 22px;
+        gap: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+/* Rounded section corners */
+.about,
+.services,
+.portfolio,
+.contact {
+    border-radius: 24px;
+}
+
+/* Rounded service and project cards */
+.services-grid > *,
+.project-card {
+    border-radius: 20px !important;
+    overflow: hidden;
+}
+
+/* Rounded project images */
+.project-image {
+    border-radius: 20px 20px 0 0;
+}
+
+/* Rounded contact form */
+.contact-form {
+    border-radius: 20px;
+}
+
+/* Rounded form inputs and button */
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    border-radius: 12px;
+}
+
+/* Add inner spacing to sections */
+.about,
+.services,
+.portfolio,
+.contact {
+    padding: 45px 40px !important;
+}
+
+/* Keep cards spaced from each other */
+.services-grid,
+.portfolio-grid {
+    gap: 22px;
+    margin-top: 30px;
+}
+
+/* Responsive spacing for tablets */
+@media (max-width: 900px) {
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        padding: 35px 28px !important;
+    }
+}
+
+/* Responsive spacing for mobile */
+@media (max-width: 600px) {
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+        padding: 25px 18px !important;
+    }
+}
+
+/* =================================
+   PREMIUM INTERACTIVE EFFECTS
+================================= */
+
+/* Smooth section appearance */
+.about,
+.services,
+.portfolio,
+.contact {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(168, 85, 247, 0.14);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168, 85, 247, 0.055),
+            rgba(99, 102, 241, 0.025) 55%,
+            rgba(255, 255, 255, 0.01)
+        );
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+    transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.about:hover,
+.services:hover,
+.portfolio:hover,
+.contact:hover {
+    border-color: rgba(168, 85, 247, 0.32);
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.2),
+        0 0 35px rgba(168, 85, 247, 0.055);
+}
+
+/* Decorative light inside each section */
+.about::before,
+.services::before,
+.portfolio::before,
+.contact::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.09);
+    filter: blur(65px);
+    pointer-events: none;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.about:hover::before,
+.services:hover::before,
+.portfolio:hover::before,
+.contact:hover::before {
+    transform: translate(-25px, 25px) scale(1.2);
+}
+
+/* Better headings */
+.about h2,
+.services h2,
+.portfolio h2,
+.contact h2 {
+    position: relative;
+    width: fit-content;
+}
+
+.about h2::after,
+.services h2::after,
+.portfolio h2::after,
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 14px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    transition: width 0.35s ease;
+}
+
+.about:hover h2::after,
+.services:hover h2::after,
+.portfolio:hover h2::after,
+.contact:hover h2::after {
+    width: 85px;
+}
+
+/* Interactive cards */
+.services-grid > *,
+.project-card {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.services-grid > *:hover,
+.project-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    border-color: rgba(192, 132, 252, 0.65);
+    background: linear-gradient(
+        145deg,
+        rgba(168, 85, 247, 0.12),
+        rgba(99, 102, 241, 0.045)
+    );
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28),
+        0 0 25px rgba(168, 85, 247, 0.1);
+}
+
+/* Shimmer effect on cards */
+.services-grid > *::after,
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 70%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.055),
+        transparent
+    );
+    transform: skewX(-18deg);
+    transition: left 0.65s ease;
+}
+
+.services-grid > *:hover::after,
+.project-card:hover::after {
+    left: 150%;
+}
+
+/* Project image interaction */
+.project-image {
+    transition: filter 0.35s ease;
+}
+
+.project-card:hover .project-image {
+    filter: brightness(1.15) saturate(1.12);
+}
+
+/* Buttons */
+.hero-button,
+.contact-form button {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.hero-button:hover,
+.contact-form button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.12);
+}
+
+.hero-button:active,
+.contact-form button:active {
+    transform: scale(0.97);
+}
+
+/* Skills chips */
+.skills-row span {
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.skills-row span:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 132, 252, 0.6);
+    background: rgba(168, 85, 247, 0.14);
+}
+
+/* Contact inputs */
+.contact-form input,
+.contact-form textarea {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover {
+    border-color: rgba(168, 85, 247, 0.45);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: rgba(168, 85, 247, 0.045);
+    box-shadow:
+        0 0 0 3px rgba(168, 85, 247, 0.1),
+        0 0 22px rgba(168, 85, 247, 0.07);
+}
+
+/* Text selection */
+.about h2,
+.services h2,
+.portfolio h2,
+.contact h2 {
+    text-wrap: balance;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .about,
+    .services,
+    .portfolio,
+    .contact,
+    .services-grid > *,
+    .project-card,
+    .hero-button,
+    .skills-row span {
+        transition: none !important;
+    }
+
+    .services-grid > *:hover,
+    .project-card:hover,
+    .skills-row span:hover {
+        transform: none;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .about:hover,
+    .services:hover,
+    .portfolio:hover,
+    .contact:hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .services-grid > *:hover,
+    .project-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* Animated particle background */
+.animated-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Keep the page content above the background */
+.home {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+}
+
+/* Soft atmospheric glow */
+.home::before,
+.home::after {
+    pointer-events: none;
+}
+
+/* Mobile performance */
+@media (max-width: 600px) {
+    .animated-background {
+        opacity: 0.45;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animated-background {
+        display: none;
+    }
+}
+
+/* ========================================
+   CINEMATIC ANIMATED BACKGROUND
+======================================== */
+
+.animated-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.72;
+}
+
+/* Main content stays above the particles */
+.home {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+    overflow-x: clip;
+}
+
+.home > :not(.animated-background) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Soft cinematic lighting */
+.home::before {
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at var(--mouse-x, 50%) var(--mouse-y, 30%),
+            rgba(124, 58, 237, 0.13),
+            transparent 38%
+        );
+}
+
+/* Keep interactions smooth on smaller screens */
+@media (max-width: 600px) {
+    .animated-background {
+        opacity: 0.42;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .animated-background {
+        display: none;
+    }
+}

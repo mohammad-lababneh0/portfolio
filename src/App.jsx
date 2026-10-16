@@ -1,0 +1,36 @@
+
+import { Routes, Route, Navigate } from 'react-router-dom'
+import './App.css'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Home from './pages/Home'
+import Services from './pages/Services'
+import Cart from './pages/Cart'
+import { CartProvider } from './context/CartContext'
+
+function App() {
+  return (
+    <CartProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={<Navigate to="/login" replace />}
+        />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/home" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/cart" element={<Cart />} />
+
+        <Route
+          path="*"
+          element={<Navigate to="/home" replace />}
+        />
+      </Routes>
+    </CartProvider>
+  )
+}
+
+export default App
